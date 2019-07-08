@@ -2,14 +2,45 @@
 
 <ul>
     {{#each burgers}}
+    {{#unless devoured}}
     <li>
         <p>ID: {{this.id}}</p>
         <p>Burger Name: {{this.burger_name}}</p>
         <p>Devoured: {{this.devoured}}</p>
+        {{!-- a bit confused about the syntax of a lot of this --}}
+        {{> burgers/burger-block }}
     </li>
+    {{/unless}}
     {{/each}}
 </ul>
 
+<ul>
+    {{#each burgers}}
+    {{#if devoured}}
+    <li>
+        <p>ID: {{this.id}}</p>
+        <p>Burger Name: {{this.burger_name}}</p>
+        <p>Devoured: {{this.devoured}}</p>
+        {{!-- a bit confused about the syntax of a lot of this --}}
+        {{> burgers/burger-block }}
+    </li>
+    {{/if}}
+    {{/each}}
+</ul>
 
-
-
+<form>
+    {{!-- <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div> --}}
+    <div class="form-group">
+        <label>Burger Name</label>
+        <input class="form-control" id="burgerName" placeholder="Burger Name">
+    </div>
+    {{!-- <div class="form-group form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div> --}}
+    <button type="submit" class="btn btn-primary" id="createBurger">Submit</button>
+</form>

@@ -8,11 +8,15 @@ var burger = {
         });
     }, 
     //maybe transition to more generic create as modeled in cat activity
-    create: function() {
-
+    create: function(cols, vals, callback) {
+        orm.insertOne("burgers", cols, vals, function(res) {
+            callback(res);
+        })
     }, 
-    update: function() {
-
+    update: function(objColVals, condition, cb) {
+        orm.updateOne("burgers", objColVals, condition, function(res) {
+            cb(res);
+        });
     }
 };
 
