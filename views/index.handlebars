@@ -1,46 +1,70 @@
-<h1>Basic Template for Now</h1>
+<div class="col-md-12 d-flex justify-content-center glow">
+    <h1>Eat-Da-Burger</h1>
+</div>
 
-<ul>
-    {{#each burgers}}
-    {{#unless devoured}}
-    <li>
-        <p>ID: {{this.id}}</p>
-        <p>Burger Name: {{this.burger_name}}</p>
-        <p>Devoured: {{this.devoured}}</p>
-        {{!-- a bit confused about the syntax of a lot of this --}}
-        {{> burgers/burger-block }}
-    </li>
-    {{/unless}}
-    {{/each}}
-</ul>
+<div class="col-md-12">
+    <div class="row">
+        <div class="col-md-6">
+            <ul class="glow">
+                {{#each burgers}}
+                {{#unless devoured}}
+                <li>
+                    {{!-- <p>ID: {{this.id}}</p> --}}
+                    <p>{{this.burger_name}}</p>
+                    <p>Ready to Be Eaten</p>
+                    {{!-- a bit confused about the syntax of a lot of this --}}
+                    <img src="assets/Images/burger4.jpeg">
+                    {{!-- <img src = "burger2.jpeg"> --}}
+                    {{> burgers/burger-block }}
+                </li>
+                {{/unless}}
+                {{/each}}
+            </ul>
+        </div>
 
-<ul>
-    {{#each burgers}}
-    {{#if devoured}}
-    <li>
-        <p>ID: {{this.id}}</p>
-        <p>Burger Name: {{this.burger_name}}</p>
-        <p>Devoured: {{this.devoured}}</p>
-        {{!-- a bit confused about the syntax of a lot of this --}}
-        {{> burgers/burger-block }}
-    </li>
-    {{/if}}
-    {{/each}}
-</ul>
+        <div class="col-md-6">
+            <ul class="glow">
+                {{#each burgers}}
+                {{#if devoured}}
+                <li>
+                    {{!-- <p>ID: {{this.id}}</p> --}}
+                    <p>{{this.burger_name}}</p>
+                    <p>That was Yummy</p>
+                    {{!-- a bit confused about the syntax of a lot of this --}}
+                    <img src="assets/Images/burger4.jpeg">
+                    {{> burgers/burger-block }}
+                </li>
+                {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+</div>
 
-<form>
+<form class = "d-flex justify-content-center">
     {{!-- <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div> --}}
     <div class="form-group">
-        <label>Burger Name</label>
-        <input class="form-control" id="burgerName" placeholder="Burger Name">
+        {{!-- <div class="col-md-12">
+            <div class="row"> --}}
+            {{!-- </div>
+        </div> --}}
+        {{!-- <div class="col-md-12">
+            <div class="row"> --}}
+                <input class="form-control" id="burgerName" placeholder="Burger Name">
+            {{!-- </div>
+        </div> --}}
     </div>
     {{!-- <div class="form-group form-check">
     <input type="checkbox" class="form-check-input" id="exampleCheck1">
     <label class="form-check-label" for="exampleCheck1">Check me out</label>
   </div> --}}
-    <button type="submit" class="btn btn-primary" id="createBurger">Submit</button>
+    {{!-- <div class="col-md-12">
+        <div class="row"> --}}
+            <button type="submit" class="btn glow" id="createBurger">Order a New Burger</button>
+        
+
 </form>
